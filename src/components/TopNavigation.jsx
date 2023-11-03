@@ -20,7 +20,7 @@ const TopNavigation = () => {
             placeholder="Search here..."
             className="w-full pl-8 text-sm text-gray-400 bg-[#F9FAFB] rounded-md h-9 placeholder:text-sm outline-white"
           />
-          <SearchIcon extraClasses="absolute top-2 left-2 w-5 h-5 stroke-gray-400" />
+          <SearchIcon extraClasses="absolute top-3 left-2 w-4 h-4 stroke-gray-400" />
         </div>
 
         <div className="flex items-center gap-2">

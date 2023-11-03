@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import FolderComponent from "./FolderComponent";
 import { BookmarkIcon, FileIcon } from "@/helper/svg";
 import ResponsiveTable from "./ResponsibleTable";
+import Modal from "./ModalComponent";
 
 const FOLDER = [
   {
@@ -25,6 +28,8 @@ const FOLDER = [
 ];
 
 const MainBar = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <section className="w-[90%] mx-auto mt-3">
@@ -38,7 +43,10 @@ const MainBar = () => {
             </p>
           </div>
 
-          <button className="text-white border border-[#0048AD] bg-[#0048AD] py-2 rounded-md px-3 text-xs whitespace-nowrap">
+          <button
+            className="text-white border border-[#0048AD] bg-[#0048AD] py-2 rounded-md px-3 text-xs whitespace-nowrap"
+            onClick={setOpenModal}
+          >
             Transcribe File
           </button>
         </div>
@@ -54,7 +62,7 @@ const MainBar = () => {
           ))}
         </div>
 
-        <div className="mt-4 border border-gray-400 rounded-md xxs:h-[calc(100vh-250px)] xs:h-[calc(100vh-400px)] md:h-[calc(100vh-520px)] xl:md:h-[calc(100vh-320px)] overflow-y-auto">
+        <div className="mt-4 border border-gray-400 rounded-md xxs:h-[calc(100vh-250px)] xs:h-[calc(100vh-400px)] xl:md:h-[calc(100vh-320px)] overflow-y-auto">
           <div className="w-[95%] mx-auto">
             <h2 className="py-2 font-semibold text-gray-900 border-b-2">
               Recent Files
@@ -69,6 +77,8 @@ const MainBar = () => {
           <p className="invisible">Hidden</p>
         </div>
       </section>
+
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };
